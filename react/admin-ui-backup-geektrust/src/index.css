@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-image: linear-gradient(to right, #304352,#d7d2cc);
+    color:white;
+}
+input{
+    color:black
+}
+th,td{
+    width:200px;
+    padding:4px;
+}
+table{
+    width:80%;
+}
+.tableData{
+    height:400px;
+}

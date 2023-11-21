@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct Node{
+    int val;
+    Node *left,*right;
+};
+void dfs(Node *h){
+    if(!h)return;
+    cout<<h->val<<" ";
+    dfs(h->left);
+    dfs(h->right);
+}
+int main(){
+    int a[]={10,20,30,40,50};
+    Node *head=new Node();
+    head->val=a[0];
+    Node *thead=head;
+    queue<pair<Node*,int>> q;
+    q.push({head,0});
+    while(!q.empty()){
+        pair<Node*,int> pr=q.front();
+        q.pop();
+        Node* t=pr.first;
+        int idx=pr.second;
+        Node *t1=new Node();
+        if(2*idx+1 < 5){
+            t1->val=a[2*idx+1];
+            t->left=t1;
+            q.push({t1,2*idx+1});
+        }
+        if(2*idx+2 < 5){
+            Node *t2=new Node();
+            t2->val = a[2*idx+2];
+            t->right=t2;
+            q.push({t2,2*idx+2});
+        }
+        
+    }
+    dfs(thead);
+    return 0;
